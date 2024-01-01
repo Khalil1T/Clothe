@@ -1,0 +1,9 @@
+
+                        <h6 class="text-primary mb-3">{{ object.created_date }}</h6>
+                        <h1 class="mb-5">{{ object.title }}</h1>
+
+
+
+
+
+                    fcsfasdfdsafasdjhkfgalsfafhfsaghhsakadsf
