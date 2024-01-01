@@ -7,3 +7,55 @@
 
 
                     fcsfasdfdsafasdjhkfgalsfafhfsaghhsakadsf
+
+                                <!-- Blog Start -->
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <div class="text-center mb-5">
+                <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Our News</h5>
+                <h1>Latest From Our News</h1>
+            </div>
+            <div class="row pb-3">
+                {% for product in product_list %}
+                    <div class="col-lg-4 mb-4">
+                        <div class="blog-item position-relative overflow-hidden rounded mb-2">
+                            <a class="blog-overlay text-decoration-none" href="{% url 'product-detail' product.pk %}">
+                                <img class="img-fluid" src="{{ product.image.url }}" alt="">
+                                <h5 class="text-white mb-3">Имя:{{ product.name }}</h5>
+                                <p class="text-primary m-0">описания:{{ product.description }}</p>
+                                <p class="text-primary m-0">цена:{{ product.price }}</p>
+                                <p class="text-primary m-0">категория:{{ product.category }}</p>
+                                <p class="text-primary m-0">бренд:{{ product.brand }}</p>
+                                <p class="text-primary m-0">модель:{{ product.model }}</p>
+                                <p class="text-primary m-0">количество:{{ product.quantity }}</p>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+
+                <div class="layout_padding gallery_section">
+    	        <div class="container">
+    		        <div class="row">\
+
+
+
+
+
+
+
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='product_images')
+
+    def __str__(self):
+        return f'{self.product.name} + "Image"'
+
+    class Meta:
+        verbose_name = _('Product image')
+        verbose_name_plural = _('Product images')
