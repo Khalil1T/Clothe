@@ -59,3 +59,8 @@ class ProductImage(models.Model):
     class Meta:
         verbose_name = _('Product image')
         verbose_name_plural = _('Product images')
+
+
+
+
+        вфыфоврфыдвы
