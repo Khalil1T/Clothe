@@ -47,6 +47,10 @@ class Product(models.Model):
         default=0,
     )
 
+    image = models.ImageField(
+        default='1.png',
+    )
+
     def __str__(self):
         return self.name
 
@@ -77,15 +81,3 @@ class ProductSpecifications(models.Model):
     class Meta:
         verbose_name = _('Product specification')
         verbose_name_plural = _('Product specifications')
-
-
-class ProductImage(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='product_images')
-
-    def __str__(self):
-        return f'{self.product.name} + "Image"'
-
-    class Meta:
-        verbose_name = _('Product image')
-        verbose_name_plural = _('Product images')

@@ -5,8 +5,8 @@ from .models import Product
 
 
 def home(request):
-    product = Product.objects.all()
-    return render(request, 'home.html', context={'product_list': product})
+    products = Product.objects.all()
+    return render(request, 'home.html', context={'products': products})
 
 
 class ProdcutDetailView(generic.DetailView):

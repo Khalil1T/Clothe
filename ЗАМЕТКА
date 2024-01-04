@@ -63,4 +63,22 @@ class ProductImage(models.Model):
 
 
 
-        вфыфоврфыдвы
+<div class="row justify-content-center">
+
+                <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="card h-100">
+<img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.name }}" style="object-fit: cover; height: 500px !important; width: auto;">
+                        <div class="card-body text-center align-items-center">
+                            <h4 class="card-title">{{ product.name }}</h4>
+                            <h5>{{ product.price }} .сом</h5>
+                            <p class="card-text" style="font-size: 18px">{{ product.description }}</p>
+                        </div>
+                        </div>
+                    <form method="POST" action="{% url 'cart-add' product.id %}">
+                {% csrf_token %}
+                        {% if user.is_authenticated %}
+                <input type="number" name="quantity" value="1" class="form-control mb-3" min="1">
+                <button type="submit" class="btn btn-primary">{{ _('Добавить в корзину') }}</button>
+                        {% endif %}
+            </form>
+        </div>
