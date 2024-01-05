@@ -29,27 +29,34 @@ def teachers(request):
 
 @login_required
 def profile(request):
-    products = Product.objects.filter(auth_user=request.user)
+    products = Product.objects.filter(brand=request.user)
     return render(request, 'accounts/profile.html', {'products': products})
 
 
-@login_required
 def update_profile(request):
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
         profile_form = ProfileUpdateForm(
             request.POST,
             request.FILES,
-            instance=request.user.profile
+            instance=request.user.profile if hasattr(request.user, 'profile') else None
         )
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
-            profile_form.save()
-            messages.success(request, f'Updated')
+            if hasattr(request.user, 'profile'):
+                profile_form.save()
+            else:
+                profile = profile_form.save(commit=False)
+                profile.user = request.user
+                profile.save()
+
+            messages.success(request, 'Profile updated successfully.')
             return redirect('profile')
     else:
         user_form = UserUpdateForm(instance=request.user)
-        profile_form = ProfileUpdateForm(instance=request.user.profile)
+        profile_form = ProfileUpdateForm(
+            instance=request.user.profile if hasattr(request.user, 'profile') else None
+        )
     context = {
         'user_form': user_form,
         'profile_form': profile_form,

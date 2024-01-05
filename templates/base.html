@@ -60,11 +60,16 @@
                            <a class="nav-item nav-link last" href="contact.html"><img src={% static 'images/shop_icon.png' %}></a>
                         </div>
                     </div>
-                    <form action="{% url 'search' %}" method="get">
-                        <input type="search" type="text" name="q" placeholder="Поиск Товара">
-                            <button type="submit">Найти</button>
-                    </form>
                     </nav>
+                    <div>
+                        <h3 class="sear-head editContent">Поиск Товара</h3>
+                        <form action="{% url 'search' %}" method="get" class="d-flex editContent">
+                            <input type="search" placeholder="Введите названия товара..." name="q" class="form-control" required="">
+                            <button type="submit" class="btn1 btn">
+                                <span class="fa fa-search" aria-hidden="true"></span>
+                            </button>
+                        </form>
+                    </div>
 				</div>
 			</div>
 		</div>
@@ -86,9 +91,6 @@
                 <div class="carousel-item active">
                     <div class="row">
 					<div class="col-sm-2 padding_0">
-						<p class="mens_taital">Men Shoes</p>
-						<div class="page_no">0/2</div>
-						<p class="mens_taital_2">Men Shoes</p>
 					</div>
 					<div class="col-sm-5">
 						<div class="banner_taital">
@@ -213,7 +215,7 @@
                     </div>
     		</div>
     			</div>
-    			<div class="col-md-6">
+    			<div class="col-md-5">
     				<div class="shop_banner">
     					<div class="our_shop">
     						<button class="out_shop_bt">Our Shop</button>
