@@ -36,12 +36,7 @@
                                     <a class="blog-overlay text-decoration-none" href="{% url 'product-detail' product.pk %}">
                                         <img src="{{ product.image.url }}" class="img-fluid" alt="">
                                         <h5 class="text-white mb-3">Имя:{{ product.name }}</h5>
-                                        <p class="text-primary m-0">описания:{{ product.description }}</p>
                                         <p class="text-primary m-0">цена:{{ product.price }}</p>
-                                        <p class="text-primary m-0">категория:{{ product.category }}</p>
-                                        <p class="text-primary m-0">бренд:{{ product.brand }}</p>
-                                        <p class="text-primary m-0">модель:{{ product.model }}</p>
-                                        <p class="text-primary m-0">количество:{{ product.quantity }}</p >
                                     </a>
                                 </div>
                             </div>

@@ -33,16 +33,16 @@
                 <h1>Latest From Our News</h1>
             </div>
             <div class="row pb-3">
-                {% for news in news_list %}
-                <div class="col-lg-4 mb-4">
-                    <div class="blog-item position-relative overflow-hidden rounded mb-2">
-                        <img class="img-fluid" src="{{ news.image.url }}" alt="">
-                        <a class="blog-overlay text-decoration-none" href="{% url 'news-detail' news.pk %}">
-                            <h5 class="text-white mb-3">{{ news.title }}</h5>
-                            <p class="text-primary m-0">{{ news.created_date }}</p>
-                        </a>
+                {% for product in products %}
+                    <div class="col-lg-4 mb-4">
+                        <div class="blog-item position-relative overflow-hidden rounded mb-2">
+                            <a class="blog-overlay text-decoration-none" href="{% url 'product-detail' product.pk %}">
+                                <img src="{{ product.image.url }}" class="img-fluid" alt="">
+                                <h5 class="text-white mb-3">Имя:{{ product.name }}</h5>
+                                <p class="text-primary m-0">цена:{{ product.price }}</p>
+                            </a>
+                        </div>
                     </div>
-                </div>
                 {% endfor %}
             </div>
         </div>

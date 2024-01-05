@@ -49,23 +49,24 @@
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                         </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                           <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
-                           <a class="nav-item nav-link" href="collection.html">Collection</a>
-                           <a class="nav-item nav-link" href="shoes.html">Shoes</a>
-                           <a class="nav-item nav-link" href="racing boots.html">Racing Boots</a>
-                           <a class="nav-item nav-link" href="contact.html">Contact</a>
-                           <a class="nav-item nav-link last" href="#"><img src={% static 'images/search_icon.png' %}></a>
-                           <a class="nav-item nav-link last" href="contact.html"><img src={% static 'images/shop_icon.png' %}></a>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                            <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+                            <a class="nav-item nav-link" href="collection.html">Collection</a>
+                            <a class="nav-item nav-link" href="shoes.html">Shoes</a>
+                            <a class="nav-item nav-link" href="racing boots.html">Racing Boots</a>
+                            <a class="nav-item nav-link" href="contact.html">Contact</a>
+                            <a class="nav-item nav-link last" href="contact.html"><img src="{% static 'images/shop_icon.png' %}"></a>
                         </div>
                     </div>
                     </nav>
                     <div>
-                        <h3 class="sear-head editContent">Поиск Товара</h3>
+                        <h3 class="nav-item nav-link last" style="color: yellow;">
+                            Поиск Товара<img src="{% static 'images/search_icon.png' %}" class="sear-head editContent">
+                        </h3>
                         <form action="{% url 'search' %}" method="get" class="d-flex editContent">
-                            <input type="search" placeholder="Введите названия товара..." name="q" class="form-control" required="">
-                            <button type="submit" class="btn1 btn">
+                            <input type="search" placeholder="Введите название товара" name="q" class="form-control" required="">
+                            <button type="submit" class="btn1 btn" style="background-color: yellow; color: black;">
                                 <span class="fa fa-search" aria-hidden="true"></span>
                             </button>
                         </form>
