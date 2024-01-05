@@ -29,7 +29,7 @@ def teachers(request):
 
 @login_required
 def profile(request):
-    products = Product.objects.filter(author=request.user)
+    products = Product.objects.filter(auth_user=request.user)
     return render(request, 'accounts/profile.html', {'products': products})
 
 

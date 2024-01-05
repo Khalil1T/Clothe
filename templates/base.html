@@ -55,11 +55,15 @@
                            <a class="nav-item nav-link" href="collection.html">Collection</a>
                            <a class="nav-item nav-link" href="shoes.html">Shoes</a>
                            <a class="nav-item nav-link" href="racing boots.html">Racing Boots</a>
-                           <a class="nav-item nav-link" href="{%  url 'contact' %}">Contact</a>
+                           <a class="nav-item nav-link" href="contact.html">Contact</a>
                            <a class="nav-item nav-link last" href="#"><img src={% static 'images/search_icon.png' %}></a>
                            <a class="nav-item nav-link last" href="contact.html"><img src={% static 'images/shop_icon.png' %}></a>
                         </div>
                     </div>
+                    <form action="{% url 'search' %}" method="get">
+                        <input type="search" type="text" name="q" placeholder="Поиск Товара">
+                            <button type="submit">Найти</button>
+                    </form>
                     </nav>
 				</div>
 			</div>
