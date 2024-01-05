@@ -51,11 +51,11 @@
                         </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                           <a class="nav-item nav-link" href="home.html">Home</a>
+                           <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
                            <a class="nav-item nav-link" href="collection.html">Collection</a>
                            <a class="nav-item nav-link" href="shoes.html">Shoes</a>
                            <a class="nav-item nav-link" href="racing boots.html">Racing Boots</a>
-                           <a class="nav-item nav-link" href="contact.html">Contact</a>
+                           <a class="nav-item nav-link" href="{%  url 'contact' %}">Contact</a>
                            <a class="nav-item nav-link last" href="#"><img src={% static 'images/search_icon.png' %}></a>
                            <a class="nav-item nav-link last" href="contact.html"><img src={% static 'images/shop_icon.png' %}></a>
                         </div>
@@ -138,7 +138,7 @@
 						</div>
 					</div>
 					<div class="col-sm-5">
-						<div class="shoes_img"><img src="images/running-shoes.png"></div>
+						<div class="shoes_img"><img src={% static 'images/running-shoes.png' %}></div>
 					</div>
 				</div>
                 </div>
@@ -159,7 +159,7 @@
 						</div>
 					</div>
 					<div class="col-sm-5">
-						<div class="shoes_img"><img src="images/running-shoes.png"></div>
+						<div class="shoes_img"><img src={% static 'images/running-shoes.png' %}></div>
 					</div>
 				</div>
                 </div>
@@ -228,21 +228,21 @@
     		<div class="mail_section">
     			<div class="row">
     				<div class="col-sm-6 col-lg-2">
-    					<div><a href="#"><img src="images/footer-logo.png"></a></div>
+    					<div><a href="#"><img src={% static 'images/footer-logo.png' %}></a></div>
     				</div>
     				<div class="col-sm-6 col-lg-2">
-    					<div class="footer-logo"><img src="images/phone-icon.png"><span class="map_text">(71) 1234567890</span></div>
+    					<div class="footer-logo"><img src={% static 'images/phone-icon.png' %}><span class="map_text">(71) 1234567890</span></div>
     				</div>
     				<div class="col-sm-6 col-lg-3">
-    					<div class="footer-logo"><img src="images/email-icon.png"><span class="map_text">Demo@gmail.com</span></div>
+    					<div class="footer-logo"><img src={% static 'images/email-icon.png' %}><span class="map_text">Demo@gmail.com</span></div>
     				</div>
     				<div class="col-sm-6 col-lg-3">
     					<div class="social_icon">
     						<ul>
-    							<li><a href="#"><img src="images/fb-icon.png"></a></li>
-    							<li><a href="#"><img src="images/twitter-icon.png"></a></li>
-    							<li><a href="#"><img src="images/in-icon.png"></a></li>
-    							<li><a href="#"><img src="images/google-icon.png"></a></li>
+    							<li><a href="#"><img src={% static 'images/fb-icon.png' %}></a></li>
+    							<li><a href="#"><img src={% static 'images/twitter-icon.png' %}></a></li>
+    							<li><a href="#"><img src={% static 'images/in-icon.png' %}></a></li>
+    							<li><a href="#"><img src={% static 'images/google-icon.png' %}></a></li>
     						</ul>
     					</div>
     				</div>
@@ -256,7 +256,7 @@
     		        </div>
     		        <div class="col-sm-4 col-lg-2">
     		        	<h2 class="shop_text">Address </h2>
-    		        	<div class="image-icon"><img src="images/map-icon.png"><span class="pet_text">No 40 Baria Sreet 15/2 NewYork City, NY, United States.</span></div>
+    		        	<div class="image-icon"><img src={% static 'images/map-icon.png' %}><span class="pet_text">No 40 Baria Sreet 15/2 NewYork City, NY, United States.</span></div>
     		        </div>
     		        <div class="col-sm-4 col-md-6 col-lg-3">
     				    <h2 class="shop_text">Our Company </h2>
@@ -295,5 +295,5 @@
     	</div>
     </div>
 	<!-- section footer end -->
-	<div class="copyright">2019 All Rights Reserved. <a href="https://html.design">Free html  Templates</a></div>
+	<div class="copyright">Tolonbekov Khalil-<a href="https://html.design">-Толонбеков Халил</a></div>
 

@@ -12,3 +12,12 @@ def home(request):
 class ProdcutDetailView(generic.DetailView):
     model = Product
     template_name = 'product/product-detail.html'
+
+def contact(request):
+    return render(request, 'contact.html')
+
+def collection(request):
+    return render(request, 'collection.html')
+
+def profile(request):
+    return render(request, 'profile.html')
