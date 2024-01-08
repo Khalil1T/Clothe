@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Category, Product, ProductSpecifications
+from .models import Category, Product, ProductSpecifications, Reviews
+
 
 class ProductSpecificationsInline(admin.TabularInline):
     model = ProductSpecifications
@@ -23,3 +24,6 @@ class CategoryAdmin(admin.ModelAdmin):
 class ProductSpecificationsAdmin(admin.ModelAdmin):
     list_display = ('product', 'name', 'value')
     search_fields = ('product__name', 'name', 'value')
+
+
+admin.site.register(Reviews)

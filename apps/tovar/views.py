@@ -1,9 +1,9 @@
-from django.shortcuts import render
-from django.views import generic
+from django.shortcuts import render, redirect
+from django.views import generic, View
 from django.views.generic import ListView
 
 from .models import Product
-from .. import tovar
+from .forms import ReviewForm
 
 
 def home(request):
@@ -30,3 +30,15 @@ class Search(ListView):
         context = super().get_context_data(**kwargs)
         context['q'] = self.request.GET.get('q')
         return context
+
+class AddReview(View):
+    def post(self, requset, pk):
+        form = ReviewForm(requset.POST)
+        product = Product.objects.get(id=pk)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.movie = product
+            form.save()
+        # return redirect(product.get_absolute_url)
+        # return redirect("/")
+        return redirect('name_of_the_view_for_movie_details', product_id=movie_id)

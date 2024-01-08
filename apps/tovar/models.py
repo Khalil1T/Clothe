@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 
@@ -51,6 +52,9 @@ class Product(models.Model):
         default='1.png',
     )
 
+    def get_absolute_url(self):
+        return reverse('product-detail', args=[str(self.id)])
+
     def __str__(self):
         return self.name
 
@@ -81,3 +85,21 @@ class ProductSpecifications(models.Model):
     class Meta:
         verbose_name = _('Product specification')
         verbose_name_plural = _('Product specifications')
+
+
+class Reviews(models.Model):
+    """Отзывы"""
+    email = models.EmailField()
+    name = models.CharField("Имя", max_length=100)
+    text = models.TextField("Сообщение", max_length=5000)
+    parent = models.ForeignKey(
+        'self', verbose_name="Родитель", on_delete=models.SET_NULL, blank=True, null=True
+    )
+    movie = models.ForeignKey(Product, verbose_name="Продукт", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.name} - {self.movie}"
+
+    class Meta:
+        verbose_name = "Отзыв"
+        verbose_name_plural = "Отзывы"
