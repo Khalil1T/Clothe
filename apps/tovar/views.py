@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.template.context_processors import request
 from django.views import generic, View
 from django.views.generic import ListView
 
@@ -39,6 +40,4 @@ class AddReview(View):
             form = form.save(commit=False)
             form.movie = product
             form.save()
-        # return redirect(product.get_absolute_url)
-        # return redirect("/")
-        return redirect('name_of_the_view_for_movie_details', product_id=movie_id)
+        return redirect(product.get_absolute_url())
