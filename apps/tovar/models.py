@@ -16,6 +16,19 @@ class Category(models.Model):
         verbose_name = _('Category')
         verbose_name_plural = _('Categories')
 
+class Brand(models.Model):
+    name = models.CharField(
+        _('Name'),
+        max_length=255,
+    )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _('Brand')
+        verbose_name_plural = _('Brands')
+
 
 class Product(models.Model):
     name = models.CharField(
@@ -35,9 +48,10 @@ class Product(models.Model):
         related_name='products',
         verbose_name=_('Category'),
     )
-    brand = models.CharField(
-        _('Brand'),
-        max_length=255,
+    brand = models.ForeignKey(
+        Brand,
+        on_delete=models.CASCADE,
+        verbose_name=_('Brand'),
     )
     model = models.CharField(
         _('Model'),
@@ -62,7 +76,6 @@ class Product(models.Model):
         verbose_name = _('Product')
         verbose_name_plural = _('Products')
 
-
 class ProductSpecifications(models.Model):
     product = models.ForeignKey(
         Product,
@@ -85,7 +98,6 @@ class ProductSpecifications(models.Model):
     class Meta:
         verbose_name = _('Product specification')
         verbose_name_plural = _('Product specifications')
-
 
 class Reviews(models.Model):
     """Отзывы"""

@@ -11,7 +11,7 @@
                             <div class="mb-5 position-relative">
                                 <div class="black-overlay"></div>
                                 <div class="row pb-3">
-                                    {% for product in products %}
+                                    {% for product in object_list %}
                                         <div class="col-lg-4 mb-4">
                                             <div class="blog-item position-relative overflow-hidden rounded mb-2">
                                                 <a class="blog-overlay text-decoration-none" href="{% url 'product-detail' product.pk %}">

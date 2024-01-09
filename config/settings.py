@@ -41,8 +41,8 @@ INSTALLED_APPS = [
 
     'crispy_forms',
 
-    'apps.tovar',
     'apps.accounts',
+    'apps.tovar',
 ]
 
 MIDDLEWARE = [
