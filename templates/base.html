@@ -52,21 +52,19 @@
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
                             <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
-                            <a class="nav-item nav-link" href="collection.html">Collection</a>
+                            <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                             <a class="nav-item nav-link" href="shoes.html">Shoes</a>
-                            <a class="nav-item nav-link" href="racing boots.html">Racing Boots</a>
-                            <a class="nav-item nav-link" href="contact.html">Contact</a>
+                            <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                            <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
                             <a class="nav-item nav-link last" href="contact.html"><img src="{% static 'images/shop_icon.png' %}"></a>
                         </div>
                     </div>
                     </nav>
-                    <div>
-                        <h3 class="nav-item nav-link last" style="color: yellow;">
-                            Поиск Товара<img src="{% static 'images/search_icon.png' %}" class="sear-head editContent">
-                        </h3>
+                    <div class="search-bar w3layouts-newsletter">
+                        <h3 class="nav-item nav-link last" style="color: yellow;">Поиск фильма</h3>
                         <form action="{% url 'search' %}" method="get" class="d-flex editContent">
-                            <input type="search" placeholder="Введите название товара" name="q" class="form-control" required="">
-                            <button type="submit" class="btn1 btn" style="background-color: yellow; color: black;">
+                            <input type="search" type="text" placeholder="Введите название..." name="q" class="form-control" required="">
+                            <button type="submit" class="btn1 btn">
                                 <span class="fa fa-search" aria-hidden="true"></span>
                             </button>
                         </form>
@@ -79,7 +77,3 @@
 
     {% block content %}
     {% endblock content %}
-
-
-	<div class="copyright">Tolonbekov Khalil-<a href="https://html.design">-Толонбеков Халил</a></div>
-

@@ -1,7 +1,7 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 
-from .views import register, profile, update_profile, profile_detail, teachers
+from .views import register, profile, profile_detail, teachers
 
 urlpatterns = [
     path('register/', register, name='register'),
@@ -13,5 +13,4 @@ urlpatterns = [
     path('profile/', profile, name='profile'),
     path('teachers/', teachers, name='teachers'),
     path('profile/<int:pk>', profile_detail, name='profile-detail'),
-    path('profile/update/', update_profile, name='update-profile'),
 ]

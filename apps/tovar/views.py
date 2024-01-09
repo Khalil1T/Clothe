@@ -1,5 +1,8 @@
+import self
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, redirect
 from django.template.context_processors import request
+from django.urls import reverse_lazy
 from django.views import generic, View
 from django.views.generic import ListView
 
@@ -14,30 +17,31 @@ def home(request):
 
 class ProdcutDetailView(generic.DetailView):
     model = Product
-    template_name = 'product/product-detail.html'
+    template_name = 'product/product_detail.html'
 
 
 class Search(ListView):
-    template_name = 'base.html'
-    context_object_name = 'product'
-    paginate_by = 5
+    paginate_by = 3
+    template_name = 'product/product_list.html'
+
     def get_queryset(self):
-        query = self.request.GET.get('q')
-        if query:
-            return Product.objects.filter(name__icontains=query)
-        else:
-            return Product.objects.all()
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['q'] = self.request.GET.get('q')
+        query = self.request.GET.get("q")
+        return Product.objects.filter(name__icontains=query)
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context["q"] = self.request.GET.get("q")
         return context
 
 class AddReview(View):
-    def post(self, requset, pk):
-        form = ReviewForm(requset.POST)
+    def post(self, request, pk):
+        form = ReviewForm(request.POST)
         product = Product.objects.get(id=pk)
         if form.is_valid():
-            form = form.save(commit=False)
-            form.movie = product
-            form.save()
+            review = form.save(commit=False)
+            review.movie = product
+            review.save()
         return redirect(product.get_absolute_url())
+
+
+
