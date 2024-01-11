@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
@@ -29,7 +30,7 @@ def teachers(request):
 
 @login_required
 def profile(request):
-    products = Product.objects.filter(brand=request.user)
+    products = Product.objects.filter(admin=request.user)
     return render(request, 'accounts/profile.html', {'products': products})
 
 

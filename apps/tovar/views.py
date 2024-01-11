@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.views import generic, View
 from django.views.generic import ListView
 
-from .models import Product
+from .models import Product, Categorys
 from .forms import ReviewForm
 
 
@@ -43,5 +43,11 @@ class AddReview(View):
             review.save()
         return redirect(product.get_absolute_url())
 
-
-
+def filter_by_category(request, id):
+    objects = Product.objects.filter(category_id=id)
+    categories = Categorys.objects.all()
+    return render(request, 'home.html', context={
+            'news_list': objects,
+            'category_list': categories,
+        }
+    )

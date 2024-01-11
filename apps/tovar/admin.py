@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product, ProductSpecifications, Reviews, Brand
+from .models import Category, Product, ProductSpecifications, Reviews, Brand, Categorys
 
 
 class ProductSpecificationsInline(admin.TabularInline):
@@ -33,3 +33,4 @@ class ProductSpecificationsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Reviews)
+admin.site.register(Categorys)

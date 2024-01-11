@@ -42,6 +42,14 @@ class Product(models.Model):
         _('Price'),
         default=0,
     )
+    is_sale = models.BooleanField(
+        default=False
+    )
+    sale_price = models.DecimalField(
+        default=0,
+        decimal_places=2,
+        max_digits=6
+    )
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
@@ -115,3 +123,10 @@ class Reviews(models.Model):
     class Meta:
         verbose_name = "Отзыв"
         verbose_name_plural = "Отзывы"
+
+
+class Categorys(models.Model):
+    name = models.CharField(max_length=255, null=False)
+
+    def __str__(self):
+        return f'{self.name}'

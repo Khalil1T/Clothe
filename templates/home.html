@@ -30,23 +30,24 @@
     </div>
         <!-- New Arrivals section start -->
     <div>
-        <div class="container">
-            <div class="row"></div>
-            <div class="row pb-3">
-                {% for product in products %}
-                    <div class="col-lg-4 mb-4">
-                        <div class="blog-item position-relative overflow-hidden rounded mb-2">
-                            <a class="blog-overlay text-decoration-none" href="{% url 'product-detail' product.pk %}">
-                                <img src="{{ product.image.url }}" class="img-fluid" alt="">
-                                <h5 class="text-primary m-0">Имя:{{ product.name }}</h5>
-                                <p class="text-primary m-0">цена:{{ product.price }}</p>
-                            </a>
-                        </div>
+    <div class="container">
+        <div class="row"></div>
+        <div class="row pb-3">
+            {% for product in products %}
+                <div class="col-lg-4 mb-4">
+                    <div class="blog-item position-relative overflow-hidden rounded mb-2">
+                        <a class="blog-overlay text-decoration-none" href="{% url 'product-detail' product.pk %}">
+                            <img src="{{ product.image.url }}" class="img-fluid" alt="">
+                            <h5 class="text-primary m-0">Имя:{{ product.name }}</h5>
+                            <p class="text-primary m-0">цена:{{ product.price }}</p>
+                        </a>
                     </div>
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
+</div>
+
 
     <!-- Blog End -->
     <!-- New Arrivals section end -->

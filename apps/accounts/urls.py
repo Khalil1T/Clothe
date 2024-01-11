@@ -1,6 +1,7 @@
 from django.urls import path
-from django.contrib.auth import views as auth_views
+from django.contrib.auth import views as auth_views, logout
 
+from . import views
 from .views import register, profile, profile_detail, teachers
 
 urlpatterns = [
